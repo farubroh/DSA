@@ -1,1 +1,14 @@
-
+Question link:https://www.codingninjas.com/codestudio/problems/count-ways-to-reach-nth-stairs_798650?utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_10
+***I have TLE***
+** I have to solve it in DP**
+#include <bits/stdc++.h> 
+int countDistinctWays(int nStairs) {
+    //  Write your code here.
+    //base case
+    if(nStairs==0)
+        return 1;
+    if(nStairs<0)
+        return 0;
+    int ans = countDistinctWays(nStairs-1)+countDistinctWays(nStairs-2);
+    return ans;
+}
