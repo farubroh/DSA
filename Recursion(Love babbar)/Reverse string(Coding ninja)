@@ -1,0 +1,20 @@
+Questtion link: https://www.codingninjas.com/codestudio/problems/reverse-the-string_799927?leftPanelTab=1&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_13
+
+#include <bits/stdc++.h> 
+ void reverse(string &cS,int s, int e){
+    //cout<<"Call received for: "<<cS<<endl;
+    if(s>e)
+        return ;
+    swap(cS[s],cS[e]);
+    s++;
+    e--;
+    reverse(cS,s,e);
+
+ }
+
+string reverseString(string str)
+{
+	// Write your code here.
+    reverse(str,0,str.length()-1);
+    return str;
+}
