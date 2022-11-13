@@ -1,0 +1,27 @@
+Question link:https://www.codingninjas.com/codestudio/problems/binary-search_972?leftPanelTab=0&utm_source=youtube&utm_medium=affiliate&utm_campaign=love_babbar_11
+
+int search(int *cArray,int s, int e, int value){
+
+  
+    //base case
+    if(s>e)
+        return -1;
+    int mid = s+(e-s)/2;
+    
+
+    if(cArray[mid]==value){
+        
+        return mid;
+    }
+        
+    if(cArray[mid]<value)
+        return search(cArray,mid+1,e,value);
+    else
+        return search(cArray,s,mid-1,value);
+}
+
+int binarySearch(int *input, int n, int val)
+{
+    //Write your code here
+    search(input,0,n-1,val);
+}
