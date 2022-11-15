@@ -1,1 +1,26 @@
+#include <iostream>
+
+using namespace std;
+int Power(int base, int power){
+    if(power==0)
+        return 1;
+    if(power==1)
+        return base;
+    int ans = Power(base,power/2);
+    if(power%2==0)
+        return ans*ans;
+    else
+        return base* ans*ans;
+
+}
+
+int main()
+{
+    int a,b;
+    cout<<"Please enter any two integer number: "<<endl;
+    cin>>a>>b;
+    int ans = Power(a,b);
+    cout<<"The result is : "<<ans<<endl;
+    return 0;
+}
 
