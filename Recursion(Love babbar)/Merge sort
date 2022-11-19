@@ -1,0 +1,73 @@
+#include <iostream>
+
+using namespace std;
+
+
+void Merge(int mArr[],int s,int e){
+    int mid = (s+e)/2;
+    int firstarray = mid-s+1;
+    int lastarray= e- mid ;
+
+    int *rFirst = new int[firstarray];
+    int *rLast = new int[lastarray];
+
+
+    //copy the elements in the arrays
+    int k =s;
+    for(int  i= 0;i<firstarray;i++)
+        rFirst[i] = mArr[k++];
+
+    for(int  i= 0;i<lastarray;i++)
+        rLast[i] = mArr[k++];
+
+    //merge the two array
+
+    int indexF= 0;
+    int indexL =0;
+     k =s;
+    while(indexF<firstarray && indexL<lastarray){
+        if(rFirst[indexF]<rLast[indexL]){
+            mArr[k++ ]= rFirst[indexF++];
+        }
+        else {
+            mArr[k++ ]= rLast[indexL++];
+        }
+    }
+    while(indexF<firstarray){
+        mArr[k++ ]= rFirst[indexF++];
+    }
+
+    while(indexL<lastarray){
+        mArr[k++ ]= rLast[indexL++];
+    }
+    delete []rFirst;
+    delete []rLast;
+
+
+
+
+}
+
+
+void MergeSort(int cArr[],int s, int e){
+    //base case
+    if(s>=e)
+        return;
+    int mid = (s+e)/2;
+    MergeSort(cArr,s,mid);
+    MergeSort(cArr,mid+1,e);
+
+    Merge(cArr,s,e);
+
+}
+
+int main()
+{
+   int arr[6] = {90,80,70,60,50,40};
+   MergeSort(arr,0,5);
+
+   for(int i =0;i<6;i++)
+    cout<<arr[i]<<" ";
+
+    return 0;
+}
